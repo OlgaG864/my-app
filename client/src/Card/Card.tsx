@@ -17,7 +17,6 @@ interface Props {
 
 class Card extends React.Component<Props> {
   render() {
-    // object destructuring
     const { data } = this.props;
 
     return (
