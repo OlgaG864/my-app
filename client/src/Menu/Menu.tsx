@@ -61,7 +61,16 @@ class Menu extends React.Component<MenuProps, MenuState> {
       categories: ["all", "chicken", "vegeterian", "asian"],
     };
   }
-
+  componentDidMount() {
+    fetch("http://localhost:3000/cards/")
+      .then((res) => res.json())
+      .then((json) => {
+        this.setState(() => ({
+          cards: json,
+          cardsDisplay: json,
+        }));
+      });
+  }
   changeDisplay = (mode: displayMode) => {
     this.setState((state, props) => ({
       display: mode,
